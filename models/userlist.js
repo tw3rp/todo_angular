@@ -1,7 +1,8 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 var Schema= mongoose.Schema;
-todoSchema=Schema ({
-	todo:{type:String, required:true}
+var todoSchema=Schema ({
+	todo:{type:String, required:true},
+	is_it_done: {type:Boolean , default: false}
 });
 var Todo = mongoose.model('Todo', todoSchema);
 
