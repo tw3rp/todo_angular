@@ -5,20 +5,28 @@
 	
 		<link rel="stylesheet" type="text/css", href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/ >       
 	</head>
+<!-- name of the controller -->
 	<body ng-controller="mainController">
 
 		<script type="text/javascript", src="/node_modules/angular/angular.min.js" ></script>
 		<script type="text/javascript", src="/app.js"></script>
-		<h2> {{"Hello" + " world! "}} {{name}} </h2>
+		<h2> 
+		Welcome to your todo list!
+			<button class="btn btn-primary" type="button">
+ 				 Todos <span class="badge">{{todos.length}}</span>
+			</button> 
+		</h2>
 		<div id="todo-list" class="row">
-	            <div class="col-sm-4 col-sm-offset-4">
-
+	            <div class="col-sm-4 col-sm-offset-4" align="center">
+			<ul class="list-group">
         	        <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                		<div class="checkbox" ng-repeat="todo in todos">
-				<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{name}}  {{todo.is_it_done}}
+                		<div  ng-repeat="todo in todos">
+
+				<li class="list-group-item">	<button type="button" class="btn btn-danger" ng-click="deleteTodo(todo._id)">{{todo.todo}}</button></li>
+<!--				<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{todo.todo}}  {{todo.is_it_done}} -->
 
          		       </div>
-
+			</ul>
             		</div>
         	</div>
 		<!-- to create a todo -->
